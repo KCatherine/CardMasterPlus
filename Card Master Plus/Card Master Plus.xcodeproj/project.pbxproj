@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		391F0CD41ADA9CF200D61BFC /* GameCards.db in Resources */ = {isa = PBXBuildFile; fileRef = 391F0CD31ADA9CF200D61BFC /* GameCards.db */; };
 		3948CFE41AD91A03003DE709 /* pic in Resources */ = {isa = PBXBuildFile; fileRef = 3948CFE31AD91A03003DE709 /* pic */; };
+		397EB4491B2E7DFB005EA8D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 397EB4481B2E7DFB005EA8D1 /* ViewController.m */; };
 		398A7FCE1AC955940076FE2C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 398A7FCD1AC955940076FE2C /* main.m */; };
 		398A7FD11AC955940076FE2C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 398A7FD01AC955940076FE2C /* AppDelegate.m */; };
 		398A7FD41AC955940076FE2C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398A7FD31AC955940076FE2C /* FirstViewController.m */; };
@@ -37,6 +38,8 @@
 /* Begin PBXFileReference section */
 		391F0CD31ADA9CF200D61BFC /* GameCards.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = GameCards.db; sourceTree = "<group>"; };
 		3948CFE31AD91A03003DE709 /* pic */ = {isa = PBXFileReference; lastKnownFileType = folder; path = pic; sourceTree = "<group>"; };
+		397EB4471B2E7DFB005EA8D1 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		397EB4481B2E7DFB005EA8D1 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		398A7FC81AC955940076FE2C /* Card Master Plus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card Master Plus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		398A7FCC1AC955940076FE2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		398A7FCD1AC955940076FE2C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 				398A7FD61AC955940076FE2C /* SecondViewController.m */,
 				39A948E41ACAE63300984374 /* CardInformationViewController.h */,
 				39A948E51ACAE63300984374 /* CardInformationViewController.m */,
+				397EB4471B2E7DFB005EA8D1 /* ViewController.h */,
+				397EB4481B2E7DFB005EA8D1 /* ViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				397EB4491B2E7DFB005EA8D1 /* ViewController.m in Sources */,
 				39A948ED1ACF711400984374 /* CardInformation.m in Sources */,
 				398A7FD71AC955940076FE2C /* SecondViewController.m in Sources */,
 				39A948E61ACAE63300984374 /* CardInformationViewController.m in Sources */,

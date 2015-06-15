@@ -200,6 +200,7 @@ sqlite3_stmt *statement = nil;
 
 -(void) addFavoriteCards:(CardInformation *)thisCard
 {
+    
     NSString *addFCsql = [NSString stringWithFormat:
                           @"INSERT INTO Favorites (ID,CARDNAME,ATK,DEF,KIND,RACE,PRO,SNR,EFF)\
                           VALUES('%@','%@','%@','%@','%@','%@','%@','%@','%@')",thisCard.ID,thisCard.cardname,thisCard.attack,thisCard.defense,thisCard.kind,thisCard.race,thisCard.property,thisCard.starORrank,thisCard.effect];
@@ -212,6 +213,7 @@ sqlite3_stmt *statement = nil;
     else
         NSLog(@"Fail");
         NSLog(@"error %s", sqlite3_errmsg(database));
+    
 }
 
 @end
