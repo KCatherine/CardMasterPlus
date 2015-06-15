@@ -11,6 +11,7 @@
 @implementation DBAccess
 
 sqlite3 *database;
+sqlite3_stmt *statement = nil;
 
 -(id)init
 {
@@ -53,7 +54,7 @@ sqlite3 *database;
     Monster.ATK,Monster.DEF,Kind.KIND,Monster.RACE,\
     Pro.PRO,Monster.SNR,Monster.EFF,Monster.PIC FROM Monster,Kind,Pro \
     WHERE Monster.KINDID=Kind.ID AND Monster.PROID=Pro.ID";
-    sqlite3_stmt *statement;
+    
     int sqlResult = sqlite3_prepare_v2(database, sql, -1, &statement, NULL);
     if(sqlResult == SQLITE_OK)
     {
@@ -105,7 +106,6 @@ sqlite3 *database;
                       Pro.PRO,Monster.SNR,Monster.EFF FROM Monster,Kind,Pro \
                       WHERE Monster.KINDID=Kind.ID AND Monster.PROID=Pro.ID AND Monster.CARDNAME like '%%%@%%'\
                       ",text];
-    sqlite3_stmt *statement;
     const char *S_stmt = [Ssql UTF8String];
     int sqlResult = sqlite3_prepare_v2(database, S_stmt, -1, &statement, NULL);
     if(sqlResult == SQLITE_OK)
@@ -156,7 +156,6 @@ sqlite3 *database;
                       @"SELECT Favorites.ID,Favorites.CARDNAME,\
                       Favorites.ATK,Favorites.DEF,Favorites.KIND,Favorites.RACE,\
                       Favorites.PRO,Favorites.SNR,Favorites.EFF FROM Favorites"];
-    sqlite3_stmt *statement;
     const char *S_stmt = [SLsql UTF8String];
     int sqlResult = sqlite3_prepare_v2(database, S_stmt, -1, &statement, NULL);
     if(sqlResult == SQLITE_OK)
@@ -204,11 +203,15 @@ sqlite3 *database;
     NSString *addFCsql = [NSString stringWithFormat:
                           @"INSERT INTO Favorites (ID,CARDNAME,ATK,DEF,KIND,RACE,PRO,SNR,EFF)\
                           VALUES('%@','%@','%@','%@','%@','%@','%@','%@','%@')",thisCard.ID,thisCard.cardname,thisCard.attack,thisCard.defense,thisCard.kind,thisCard.race,thisCard.property,thisCard.starORrank,thisCard.effect];
-    char *errmsg = nil;
-    if(sqlite3_exec(database, [addFCsql UTF8String], NULL, NULL, &errmsg) == SQLITE_OK)
+    const char *add_stmt = [addFCsql UTF8String];
+    char *errorMesg = NULL;
+    int result = sqlite3_exec(database, add_stmt, NULL, NULL, &errorMesg);
+    
+    if(result == SQLITE_OK)
         NSLog(@"OK");
     else
         NSLog(@"Fail");
+        NSLog(@"error %s", sqlite3_errmsg(database));
 }
 
 @end
